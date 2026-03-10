@@ -25,12 +25,10 @@ def load_listings(f):
                 - Values (str): Corresponding values from that row
                   (NOTE: All values are strings, including numbers, which means you will need to convert them in later functions)
     """
-    # Do not modify this code
-    # This opens the CSV and saves it as a list of lists
+  
     base_path = os.path.abspath(os.path.dirname(__file__))
     full_path = os.path.join(base_path, f)
 
-    # TODO: Read the CSV using csv.reader and convert it to a list a dictionaries
     listings = []
     with open(full_path, 'r', newline='') as file:
         reader = csv.reader(file)
@@ -121,7 +119,6 @@ class TestAirbnbListings(unittest.TestCase):
     def test_calculate_avg_price_by_neighbourhood_group_and_room(self):
         averages = calculate_avg_price_by_neighbourhood_group_and_room(self.listings)
         
-        # Test a few key combinations from the real data
         self.assertAlmostEqual(averages[('Manhattan', 'Entire home/apt')], 253.74735249621784, places=2)
 
         self.assertAlmostEqual(averages[('Brooklyn', 'Private room')], 161.65877598152426, places=2)
